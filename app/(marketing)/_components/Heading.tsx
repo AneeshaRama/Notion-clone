@@ -24,7 +24,7 @@ const Heading = () => {
         {
           isAuthenticated && !isLoading && (
             <div className='mt-10'>
-              <Link href={"/documnets"}>
+              <Link href={"/documents"}>
               <Button>
               Enter Notion 
               <ArrowRight className='h-4 w-4 ml-2'/>    
