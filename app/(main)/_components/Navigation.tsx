@@ -3,13 +3,14 @@
 import { cn } from '@/lib/utils'
 import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-import React, { ElementRef, MouseEvent, useEffect, useRef, useState } from 'react'
+import React, { ElementRef, useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 import UserItem from './UserItem'
 import Item from './Item'
-import { useMutation, useQuery } from 'convex/react'
+import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
+import DocumentList from './DocumentList'
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -22,8 +23,7 @@ const Navigation = () => {
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
-  const create = useMutation(api.documents.create);
-  const documents = useQuery(api.documents.get);
+  const create = useMutation(api.documents.create);  
 
   useEffect(()=>{
     if(isMobile){
@@ -143,15 +143,7 @@ const Navigation = () => {
             />
         </div>
         <div className='mt-4'>
-            {
-              documents?.map((d)=>{
-                return(
-                  <div key={d._id}>
-                    <p>{d.title}</p>
-                  </div>
-                )
-              })
-            }
+            <DocumentList/>
         </div>
         <div
          onMouseDown={handleMouseDown}
