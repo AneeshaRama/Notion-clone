@@ -5,6 +5,7 @@ import { useConvexAuth } from 'convex/react'
 import { redirect } from 'next/navigation'
 import React, { useEffect } from 'react'
 import Navigation from './_components/Navigation'
+import SearchCommand from '@/components/SearchCommand'
 
 const MainLayout = ({children}: {children: React.ReactNode}) => {
   const {isAuthenticated, isLoading} = useConvexAuth()
@@ -23,6 +24,7 @@ const MainLayout = ({children}: {children: React.ReactNode}) => {
     <div className='h-full flex dark:bg-[#0f0f0f]'>
         <Navigation/>
         <main className="flex-1 h-full overflow-y-auto">
+          <SearchCommand/>
             {children}
         </main>
     </div>
