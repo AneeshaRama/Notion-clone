@@ -1,11 +1,15 @@
 "use client"
 
 import { cn } from '@/lib/utils'
-import { ChevronsLeft, MenuIcon } from 'lucide-react'
+import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import React, { ElementRef, MouseEvent, useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 import UserItem from './UserItem'
+import Item from './Item'
+import { useMutation, useQuery } from 'convex/react'
+import { api } from '@/convex/_generated/api'
+import { toast } from 'sonner'
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -17,6 +21,9 @@ const Navigation = () => {
   
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
+
+  const create = useMutation(api.documents.create);
+  const documents = useQuery(api.documents.get);
 
   useEffect(()=>{
     if(isMobile){
@@ -91,6 +98,15 @@ const Navigation = () => {
     }
   }
 
+  const handleCreate = ()=>{
+    const promise = create({title: "Untitled"});
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "New note created!",
+      error: "Failed to create a new note"
+    })
+  }
+
   return (
     <>
       <aside ref={sidebarRef} className={cn(
@@ -109,9 +125,33 @@ const Navigation = () => {
         </div>
         <div>
             <UserItem/>
+            <Item
+              label='Search'
+              icon={Search}
+              isSearch
+              onClick={()=>{}}
+            />
+            <Item
+              label='Settings'
+              icon={Settings}              
+              onClick={()=>{}}
+            />
+            <Item
+              onClick={handleCreate}
+              label="New Page"
+              icon={PlusCircle}
+            />
         </div>
         <div className='mt-4'>
-            <p>Documents</p>
+            {
+              documents?.map((d)=>{
+                return(
+                  <div key={d._id}>
+                    <p>{d.title}</p>
+                  </div>
+                )
+              })
+            }
         </div>
         <div
          onMouseDown={handleMouseDown}
