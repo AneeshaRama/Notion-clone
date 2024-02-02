@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Notion clone
 
-## Getting Started
+I have tried to build the Notion clone application as part of learning **NextJs**. I learnt to use production ready tools like **Clerk authentication system** and **Convex real-time database** for optimised and performant application.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### Features:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. User should be authenticated using **gmail** or **github** to get started with the application
+2. User can create new document 
+3. User can change the title of the document which is updated in real time across the screen with help of **convex real time database**
+4. User can **archive** the documents (**soft deleting**). Basically single document can have parent documents as well as children documents. If the Parent document is archived, all the children documents also will be archived
+5. User can restore archived documents from the trash box
+6. User need to **confirm** before delete the document permanently
+7. User can add **cover image** to their documents 
+8. User can pick the **favourite icon** for their document
+9. User can **publish** their document and share the link with **others to access it**
+10. User can **un-publish** their document so that others will **not have access** to it
+11. User can **search** their documents
+12. **Dark** mode is available
