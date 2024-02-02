@@ -49,9 +49,8 @@ const SearchCommand = () => {
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup heading="Documents">
                 {documents?.map((d)=>(
-                    <Link href={`/documents/${d._id}`}>
-                        <CommandItem 
-                        key={d._id}
+                    <Link href={`/documents/${d._id}`} key={d._id}>
+                        <CommandItem                         
                         value={d._id}
                         title={d.title}
                         onSelect={onSelect}
