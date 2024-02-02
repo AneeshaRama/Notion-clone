@@ -16,7 +16,7 @@ const Navbar = () => {
     const scrolled = useScrollTop();
   return (
     <div className={cn(
-        "z-50 dark:bg-[#0f0f0f] fixed top-0 flex items-center w-full p-6",
+        "z-50 dark:bg-[#1f1f1f] fixed top-0 flex items-center w-full p-6",
         scrolled && "border-b shadow-sm"
     )}>
         <Logo/>
