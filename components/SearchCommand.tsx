@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './ui/command';
 import { File } from 'lucide-react';
+import Link from 'next/link';
 
 const SearchCommand = () => {
   const {user} = useUser();
@@ -48,7 +49,8 @@ const SearchCommand = () => {
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup heading="Documents">
                 {documents?.map((d)=>(
-                    <CommandItem 
+                    <Link href={`/documents/${d._id}`}>
+                        <CommandItem 
                         key={d._id}
                         value={d._id}
                         title={d.title}
@@ -63,6 +65,7 @@ const SearchCommand = () => {
                         }
                         <span>{d.title}</span>
                     </CommandItem>
+                    </Link>
                 ))}
             </CommandGroup>
         </CommandList>
