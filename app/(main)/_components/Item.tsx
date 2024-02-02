@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { useUser } from '@clerk/clerk-react';
 import { useMutation } from 'convex/react';
 import { ChevronDown, ChevronRight, LucideIcon, MoreHorizontal, Plus, Trash } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 import { toast } from 'sonner';
@@ -97,9 +98,11 @@ const Item = ({
         )}
         {
             documentIcon ? (
-                <div className='shrink-0 mr-2 text-[18px]'>
+                <Link href={`/documents/${id}`}>
+                    <div className='shrink-0 mr-2 text-[18px]'>
                     {documentIcon}
                 </div>
+                </Link>
             ) : 
             (
 

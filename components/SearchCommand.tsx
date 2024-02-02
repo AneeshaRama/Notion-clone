@@ -50,7 +50,7 @@ const SearchCommand = () => {
                 {documents?.map((d)=>(
                     <CommandItem 
                         key={d._id}
-                        value={`${d._id}-${d.title}`}
+                        value={d._id}
                         title={d.title}
                         onSelect={onSelect}
                     >
