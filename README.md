@@ -2,6 +2,7 @@
 
 I have tried to build the Notion clone application as part of learning **NextJs**. I learnt to use production ready tools like **Clerk authentication system** and **Convex real-time database** for optimised and performant application.
 
+[![Drawing-Recognition-Model](https://img.youtube.com/vi/HlLPgevFbTA/0.jpg)](https://www.youtube.com/watch?v=HlLPgevFbTA)
 
 #### Features:
 
